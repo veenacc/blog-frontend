@@ -1,4 +1,4 @@
-function Header()
+export function Header()
 {
   return(
     <div>
@@ -6,5 +6,5 @@ function Header()
         <a href="#">Home</a> | <a href="#posts-index">All posts</a> | <a href="#posts-new">New post</a>
       </header>
     </div>
-  )
+  );
 }
