@@ -17,9 +17,10 @@ export function Content() {
     }
   ];
   return (
-    <div>
+    <main> 
+      {/* change div tag to main for styling purpose */}
       <Newpost />
       <Allposts posts={posts} />
-    </div>
+    </main>
   );
 }

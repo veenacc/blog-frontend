@@ -6,14 +6,23 @@ html {
   scroll-behavior: smooth;
 }
 
-Header {
-  background-color: blue;
+header {
+  background-color: #9898ba;
+  color: white;
   outline: auto;
 
 }
 
+header a:hover {
+  background-color: brown;
+  border-radius: .2em;
+}
+
 Footer {
   background-color: brown;
+  padding: 2em;
+  margin-top: 1em;
+  text-align: center;
 }
 
 main {
