@@ -1,6 +1,7 @@
 import { Allposts } from "./Allposts";
 import { Newpost } from "./Newpost";
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 
 
@@ -19,19 +20,21 @@ export function Content() {
   //     image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/walnuts44-b703db9.jpg?quality=90&resize=398,361"
   //   }
   // ];
-  let posts = [];
-
+  // let posts = [];
+  const [posts, setPosts] = useState([]);
+  // function to establish connection to rails server and get data from backend rails
   const handleAllposts = () =>{
     console.log("Button clicked");
     axios.get("http://localhost:3000/posts.json").then(
       response => {
         console.log(response.data);
         console.log("I'm in function handleAllposts");
+        setPosts(response.data);
       }
     )
     
   }
-
+  // useEffect(handleAllposts, []);
   return (
     <main> 
       {/* change div tag to main for styling purpose */}
