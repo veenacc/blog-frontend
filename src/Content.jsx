@@ -2,6 +2,7 @@ import { Allposts } from "./Allposts";
 import { Newpost } from "./Newpost";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Modal } from "./Modal";
 
 
 
@@ -34,13 +35,16 @@ export function Content() {
     )
     
   }
-  // useEffect(handleAllposts, []);
+  useEffect(handleAllposts, []);
   return (
     <main> 
       {/* change div tag to main for styling purpose */}
       <Newpost />
-      <button onClick={handleAllposts}>Get Data</button>
+      {/* <button onClick={handleAllposts}>Get Data</button> */}
       <Allposts posts={posts} />
+      <Modal show={true}>
+        <p>TEST</p>
+      </Modal>
     </main>
   );
 }
