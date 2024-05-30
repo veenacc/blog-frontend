@@ -3,6 +3,7 @@ import { Newpost } from "./Newpost";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
+import { PostShow } from "./PostShow";
 
 
 
@@ -24,6 +25,8 @@ export function Content() {
   // let posts = [];
   const [posts, setPosts] = useState([]);
   const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
+  const [currentPost, setCurrentPost] = useState({});
+
   // function to establish connection to rails server and get data from backend rails
   const handleAllposts = () =>{
     console.log("Button clicked");
@@ -38,8 +41,10 @@ export function Content() {
   }
 
   // start : functions to handle modal, sets show to true or false
-  const handleShowPost = () => {
+  const handleShowPost = (post) => {
+    setCurrentPost(post);
     setIsPostsShowVisible(true);
+    
   };
 
   const handleClose = () => {
@@ -57,7 +62,7 @@ export function Content() {
       {/* <button onClick={handleAllposts}>Get Data</button> */}
       <Allposts posts={posts}  onShowPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <p>This is the prop.children part</p>
+        <PostShow post={currentPost} />
       </Modal>
     </main>
   );
