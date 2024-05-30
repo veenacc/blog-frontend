@@ -23,6 +23,7 @@ export function Content() {
   // ];
   // let posts = [];
   const [posts, setPosts] = useState([]);
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
   // function to establish connection to rails server and get data from backend rails
   const handleAllposts = () =>{
     console.log("Button clicked");
@@ -35,15 +36,28 @@ export function Content() {
     )
     
   }
+
+  // start : functions to handle modal, sets show to true or false
+  const handleShowPost = () => {
+    setIsPostsShowVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsPostsShowVisible(false);
+  };
+  // End : functions to handle modal, sets show to true or false
+  
   useEffect(handleAllposts, []);
+
+
   return (
     <main> 
       {/* change div tag to main for styling purpose */}
       <Newpost />
       {/* <button onClick={handleAllposts}>Get Data</button> */}
-      <Allposts posts={posts} />
-      <Modal show={true}>
-        <p>TEST</p>
+      <Allposts posts={posts}  onShowPost={handleShowPost}/>
+      <Modal show={isPostsShowVisible} onClose={handleClose}>
+        <p>This is the prop.children part</p>
       </Modal>
     </main>
   );
