@@ -53,13 +53,33 @@ export function Content() {
   // End : functions to handle modal, sets show to true or false
 
 //start : function that will do the post action//
-const handleCreatePost =(params) =>{
-  axios.post("http://localhost:3000/posts.json", params).then(
+  const handleCreatePost =(params) =>{
+    axios.post("http://localhost:3000/posts.json", params).then(
+      response =>{
+        console.log(response.data);
+        setPosts([...posts,response.data]);
+      });
+  }
+//end
+
+//start : function that will do the Patch action//
+const handleUpdatePost =(params) =>{
+  axios.patch(`http://localhost:3000/posts/${currentPost.id}.json`, params).then(
     response =>{
       console.log(response.data);
-      setPosts([...posts,response.data]);
+      // setPosts([...posts,response.data]);
     });
 }
+//end
+
+//start : function that will do the Delete action//
+// const handleCreatePost =(params) =>{
+//   axios.post("http://localhost:3000/posts.json", params).then(
+//     response =>{
+//       console.log(response.data);
+//       setPosts([...posts,response.data]);
+//     });
+// }
 //end
   
   useEffect(handleAllposts, []);
@@ -70,8 +90,8 @@ const handleCreatePost =(params) =>{
       <Newpost onCreatePost={handleCreatePost}/>
       {/* <button onClick={handleAllposts}>Get Data</button> */}
       <Allposts posts={posts}  onShowPost={handleShowPost}/>
-      <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <PostShow post={currentPost} />
+      <Modal show={isPostsShowVisible} onClose={handleClose}  > 
+        <PostShow post={currentPost} onUpdatePost={handleUpdatePost} />
       </Modal>
     </main>
   );

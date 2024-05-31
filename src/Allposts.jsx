@@ -5,6 +5,7 @@ export function Allposts(props) {
       <div className="cards">
         {props.posts.map(post => (
           <div key={post.id} className="posts card">
+            <p>{post.id}</p>
             <h2>{post.title}</h2>
             {/* <h4>{post.body}</h4> */}
             <img src={post.image} />
