@@ -3,13 +3,23 @@ export function Newpost() {
     <div id="posts-new">
       <h1>New post</h1>
 
-      <form>
-        <label htmlFor="title">Title</label><br />
-        <input type="text" id="title" name="title"></input><br />
-        <label htmlFor="body">Body</label><br />
-        <input type="text" id="body" name="body"></input><br />
-        <label htmlFor="image">Image</label><br />
-        <input type="url"></input>
+      <form method="Post" action="http://localhost:3000/posts.json">
+        <div>
+          Title:<input type="text" name="title" />
+        
+        </div>
+        <div>
+          Body:<input type="text" name="Body" />
+        
+        </div>
+        <div>
+          Image:<input type="url" name="image" />
+        
+        </div>
+        <div>
+          <button type="submit" >submit</button>
+        </div>
+        
         {/*Can add id and name */}
       </form>
 
