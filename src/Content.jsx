@@ -51,14 +51,23 @@ export function Content() {
     setIsPostsShowVisible(false);
   };
   // End : functions to handle modal, sets show to true or false
+
+//start : function that will do the post action//
+const handleCreatePost =(params) =>{
+  axios.post("http://localhost:3000/posts.json", params).then(
+    response =>{
+      console.log(response.data);
+      setPosts([...posts,response.data]);
+    });
+}
+//end
   
   useEffect(handleAllposts, []);
-
 
   return (
     <main> 
       {/* change div tag to main for styling purpose */}
-      <Newpost />
+      <Newpost onCreatePost={handleCreatePost}/>
       {/* <button onClick={handleAllposts}>Get Data</button> */}
       <Allposts posts={posts}  onShowPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleClose}>
