@@ -68,6 +68,7 @@ const handleUpdatePost =(params) =>{
     response =>{
       console.log(response.data);
       // setPosts([...posts,response.data]);
+      handleClose();
     });
 }
 //end
