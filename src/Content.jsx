@@ -7,7 +7,7 @@ import { PostShow } from "./PostShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
-
+import { Routes, Route } from "react-router-dom";
 
 
 export function Content() {
@@ -91,15 +91,16 @@ const handleUpdatePost =(params) =>{
   return (
     <main> 
       <div>
-        <Signup />
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/LogoutLink" element={<LogoutLink />} />
+        <Route path="/Newpost" element={<Newpost onCreatePost={handleCreatePost}/>} />
+      </Routes>
       </div>
-      <div>
-        <Login />
-      </div>
-      <div><br /><LogoutLink /></div>
         
       {/* change div tag to main for styling purpose */}
-      <Newpost onCreatePost={handleCreatePost}/>
+      
       {/* <button onClick={handleAllposts}>Get Data</button> */}
       <Allposts posts={posts}  onShowPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleClose}  > 
