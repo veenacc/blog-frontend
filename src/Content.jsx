@@ -94,15 +94,16 @@ const handleUpdatePost =(params) =>{
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/LogoutLink" element={<LogoutLink />} />
-        <Route path="/Newpost" element={<Newpost onCreatePost={handleCreatePost}/>} />
+        {/* <Route path="/LogoutLink" element={<LogoutLink />} /> */}
+        <Route path="/Posts/Newpost" element={<Newpost onCreatePost={handleCreatePost}/>} />
+        <Route path="/" element={<Allposts posts={posts}  onShowPost={handleShowPost}/>} />
       </Routes>
       </div>
         
       {/* change div tag to main for styling purpose */}
       
       {/* <button onClick={handleAllposts}>Get Data</button> */}
-      <Allposts posts={posts}  onShowPost={handleShowPost}/>
+      
       <Modal show={isPostsShowVisible} onClose={handleClose}  > 
         <PostShow post={currentPost} onUpdatePost={handleUpdatePost} />
       </Modal>

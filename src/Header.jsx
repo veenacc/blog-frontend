@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { LogoutLink } from "./LogoutLink";
 
 export function Header()
 {
@@ -6,7 +7,8 @@ export function Header()
     <div>
       <header>
         {/* <a href="#">Home</a> | <a href="#posts-index">All posts</a> | <a href="#posts-new">New post</a> */}
-        <Link to="/signup">Signup</Link> | <Link to="/Login">Login</Link> | <Link to="/LogoutLink">Logout</Link> |<Link to="/Newpost">Create New post</Link>
+        <Link to="/">Home</Link> | <Link to="/signup">Signup</Link> | 
+        <Link to="/Login">Login</Link> | <LogoutLink /> | <Link to="/Posts/Newpost">Create New post</Link>
       </header>
      
     </div>
