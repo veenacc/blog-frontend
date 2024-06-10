@@ -4,6 +4,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
 import { PostShow } from "./PostShow";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 
 
@@ -87,6 +90,14 @@ const handleUpdatePost =(params) =>{
 
   return (
     <main> 
+      <div>
+        <Signup />
+      </div>
+      <div>
+        <Login />
+      </div>
+      <div><br /><LogoutLink /></div>
+        
       {/* change div tag to main for styling purpose */}
       <Newpost onCreatePost={handleCreatePost}/>
       {/* <button onClick={handleAllposts}>Get Data</button> */}
